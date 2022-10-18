@@ -1,9 +1,21 @@
 ﻿// Напишите программу, которая на вход принимает одно число (N), а на выходе показывает все целые числа в промежутке от -N до N.
+bool Digit (string? number)
+{
+    bool result = int.TryParse(number, out int num);
+    return result;
+}
 
 Console.Write("Введите число: ");
-int x = Convert.ToInt32(Console.ReadLine());
+string? number = Console.ReadLine();
 
-int count = -x;
+while (!Digit(number))
+{
+    Console.Write("Это не число. Введите число: ");
+    number = Console.ReadLine();
+}
+
+int count = -(Int32.Parse(number));
+int x = Int32.Parse(number);
 
 while (count < x + 1)
 {
